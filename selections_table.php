@@ -1,18 +1,6 @@
 <?php
 
-    $dsn = 'mysql:XXXDB;host=localhost;charset=utf8mb4';
-    $user = 'XXXUSER';
-    $password = 'XXXPASSWORD';
-    
-    $pdo = new PDO(
-        $dsn,
-        $user,
-        $password,
-        array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        )
-    );
+    require_once __DIR__ . '/includes/db.php';
     
     $sql = "
     CREATE TABLE selections (
