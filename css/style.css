@@ -1,0 +1,1388 @@
+/* =========================
+   Job Compass
+   Common Style(ここからselection_list.phpのデザイン)
+========================= */
+
+:root {
+    --color-bg: #f5f7fb;
+    --color-surface: #ffffff;
+
+    --color-sidebar: #14213d;
+    --color-sidebar-text: #dbe4f0;
+
+    --color-text: #1f2937;
+    --color-text-sub: #7b8494;
+
+    --color-primary: #3b73e8;
+    --color-primary-light: #edf3ff;
+
+    --color-border: #e6eaf0;
+
+    --color-success: #2a9d72;
+    --color-warning: #e7a33e;
+    --color-danger: #d9534f;
+
+    --radius-small: 8px;
+    --radius-medium: 14px;
+    --radius-large: 20px;
+
+    --shadow-card:
+        0 4px 20px rgba(25, 39, 70, 0.06);
+
+    --sidebar-width: 240px;
+}
+
+
+/* =========================
+   Reset
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans JP",
+        sans-serif;
+
+    background-color: var(--color-bg);
+    color: var(--color-text);
+
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   Layout
+========================= */
+
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+
+    background-color: var(--color-sidebar);
+    color: var(--color-sidebar-text);
+
+    padding: 28px 20px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar-logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+
+    margin-bottom: 40px;
+}
+
+.sidebar-logo span {
+    color: #73a6ff;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    display: block;
+
+    padding: 11px 14px;
+
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.sidebar-nav a.active {
+    background-color: rgba(115, 166, 255, 0.18);
+    color: #ffffff;
+}
+
+
+/* =========================
+   Main
+========================= */
+
+.main-area {
+    width: calc(100% - var(--sidebar-width));
+
+    margin-left: var(--sidebar-width);
+
+    padding: 32px 40px 60px;
+
+    min-width: 0;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.page-title {
+    margin: 0;
+
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.page-description {
+    margin-top: 5px;
+
+    color: var(--color-text-sub);
+    font-size: 14px;
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.card {
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+
+    padding: 24px;
+
+    box-shadow: var(--shadow-card);
+
+    min-width: 0;
+}
+
+/* =========================
+   Table
+========================= */
+
+.table-wrapper {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper table {
+    width: max-content;
+    min-width: 950px;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+th {
+    background-color: #f7f9fc;
+
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+td {
+    color: var(--color-text);
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+tr:hover td {
+    background-color: #fafcff;
+}
+
+<!--th,-->
+<!--td {-->
+<!--    padding: 14px 16px;-->
+<!--    text-align: left;-->
+
+<!--    border-bottom: 1px solid var(--color-border);-->
+<!--    border-right: 1px solid var(--color-border);-->
+<!--}-->
+
+/* =========================
+   Filter Form
+========================= */
+
+.filter-form {
+    display: flex;
+    align-items: end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.filter-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-sub);
+}
+
+.filter-group select {
+    min-width: 190px;
+
+    padding: 10px 36px 10px 12px;
+
+    background-color: #ffffff;
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 115, 232, 0.12);
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+
+    padding: 9px 16px;
+
+    border: none;
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        transform 0.1s;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #2f65d4;
+}
+
+.btn-secondary {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #dfe9ff;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* =========================
+   List Header
+========================= */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.section-title {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.section-description {
+    margin: 4px 0 0;
+
+    color: var(--color-text-sub);
+    font-size: 13px;
+}
+
+<!---->(ここまでselection_list.phpのデザイン)
+
+/* =========================
+   Dashboard Actions(ここからindex.phpのデザイン)
+========================= */
+
+.dashboard-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.action-card {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #cbd8f4;
+
+    box-shadow:
+        0 8px 26px rgba(25, 39, 70, 0.09);
+}
+
+.action-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+
+    border-radius: 12px;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.action-title {
+    margin-bottom: 3px;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.action-description {
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+}
+
+
+<!---->(ここまでindex.phpのデザイン)
+
+/* =========================
+   Form Card（ここからselection_preate.phpのデザイン）
+========================= */
+
+.form-card {
+    max-width: 900px;
+
+    padding: 28px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+}
+
+.form-card-header {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.selection-list-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+
+/* =========================
+   Entry Form
+========================= */
+
+.entry-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--color-text);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   Form Parts
+========================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    background-color: #ffffff;
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 44px;
+}
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(59, 115, 232, 0.12);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a7afbd;
+}
+
+
+/* =========================
+   Form Actions
+========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 8px;
+}
+
+
+/* =========================
+   Alert
+========================= */
+
+.alert {
+    max-width: 900px;
+
+    padding: 13px 16px;
+
+    margin-bottom: 20px;
+
+    border-radius: var(--radius-small);
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-error {
+    background-color: #fff1f1;
+    color: #b54242;
+
+    border: 1px solid #f2cccc;
+}
+
+.alert-success {
+    background-color: #edf9f4;
+    color: #267b5a;
+
+    border: 1px solid #cdeadd;
+}
+
+
+
+
+
+/* =========================
+   Form Section(selection_create.phpの基本情報、ログイン情報を区切る)
+========================= */
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section-title {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+
+/* =========================
+   Delete / Confirm（selection_delete.php、company_delete.phpのデザイン）
+========================= */
+
+.confirm-card {
+    max-width: 700px;
+
+    padding: 28px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+
+    box-shadow: var(--shadow-card);
+}
+
+.confirm-header {
+    padding-bottom: 20px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.confirm-title {
+    margin: 0 0 6px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.confirm-description {
+    margin: 0;
+
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+}
+
+
+/* 削除対象の情報 */
+
+.confirm-details {
+    margin-bottom: 24px;
+
+    padding: 18px;
+
+    background-color: #f7f9fc;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+}
+
+.confirm-row {
+    display: flex;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+.confirm-row:last-child {
+    border-bottom: none;
+}
+
+.confirm-label {
+    width: 130px;
+
+    flex-shrink: 0;
+
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.confirm-value {
+    color: var(--color-text);
+
+    font-size: 14px;
+}
+
+
+/* 削除ボタン */
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #c64541;
+}
+
+
+/* 注意 */
+
+.delete-warning {
+    margin-bottom: 22px;
+
+    padding: 13px 16px;
+
+    background-color: #fff4f4;
+    color: #b54242;
+
+    border: 1px solid #f1cccc;
+    border-radius: var(--radius-small);
+
+    font-size: 13px;
+}
+
+
+
+
+
+/* =========================
+   Authentication（ここからログイン画面のデザイン）
+========================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    background-color: var(--color-bg);
+}
+
+
+.auth-container {
+    width: 100%;
+    max-width: 460px;
+}
+
+
+.auth-logo {
+    margin-bottom: 24px;
+
+    text-align: center;
+
+    color: var(--color-sidebar);
+
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+.auth-logo span {
+    color: var(--color-primary);
+}
+
+
+.auth-card {
+    padding: 32px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow-card);
+}
+
+
+.auth-header {
+    margin-bottom: 28px;
+
+    text-align: center;
+}
+
+
+.auth-header h1 {
+    margin: 0 0 8px;
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+
+.auth-header p {
+    margin: 0;
+
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+}
+
+
+.auth-button {
+    width: 100%;
+
+    margin-top: 4px;
+}
+
+
+.auth-footer {
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+}
+
+
+.auth-footer a {
+    margin-left: 5px;
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+}
+
+/* =========================
+   Selection Cards
+========================= */
+
+.selection-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+
+.selection-card {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    padding: 22px;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+
+    box-shadow:
+        0 2px 12px rgba(25, 39, 70, 0.04);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+
+.selection-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #cfdbf2;
+
+    box-shadow:
+        0 7px 22px rgba(25, 39, 70, 0.08);
+}
+
+
+/* 上部 */
+
+.selection-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+.selection-company {
+    margin-bottom: 4px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: var(--color-text);
+}
+
+
+.selection-type {
+    color: var(--color-text-sub);
+
+    font-size: 13px;
+}
+
+
+/* ステータス */
+
+.selection-status {
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* 選考情報 */
+
+.selection-card-body {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px 24px;
+
+    padding: 18px 0;
+}
+
+
+.selection-info {
+    min-width: 0;
+}
+
+
+.selection-info-label {
+    margin-bottom: 3px;
+
+    color: var(--color-text-sub);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.selection-info-value {
+    overflow-wrap: anywhere;
+
+    color: var(--color-text);
+
+    font-size: 14px;
+}
+
+
+/* メモ */
+
+.selection-memo {
+    padding: 14px;
+
+    margin-bottom: 18px;
+
+    background-color: #f7f9fc;
+
+    border-radius: var(--radius-small);
+}
+
+
+.selection-memo-text {
+    margin-top: 4px;
+
+    overflow-wrap: anywhere;
+
+    color: var(--color-text);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* 編集・削除 */
+
+.selection-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: auto;
+
+    padding-top: 16px;
+
+    border-top: 1px solid var(--color-border);
+}
+
+
+.selection-delete-link {
+    color: var(--color-danger);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.selection-delete-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   レスポンシブ対応（ここからスマホ対応のデザイン）
+======================================== */
+
+/* =========================
+   タブレット・狭いPC・スマートフォン
+========================= */
+
+@media (max-width: 1100px) {
+
+    .app-layout {
+        display: block;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        position: static;
+
+        width: 100%;
+        min-height: auto;
+
+        padding: 16px;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 16px;
+
+        font-size: 20px;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+
+        gap: 8px;
+
+        overflow-x: auto;
+
+        padding-bottom: 4px;
+    }
+
+    .sidebar-nav a {
+        flex-shrink: 0;
+
+        padding: 9px 12px;
+
+        white-space: nowrap;
+
+        font-size: 13px;
+    }
+
+    .main-area {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 24px 16px 40px;
+
+        min-width: 0;
+    }
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 14px;
+
+        margin-bottom: 22px;
+    }
+
+    .list-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .filter-form {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 14px;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .filter-actions {
+        width: 100%;
+    }
+
+    .filter-actions .btn {
+        flex: 1;
+    }
+
+
+
+    /* -------------------------
+       一覧ヘッダー
+    ------------------------- */
+
+    .list-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    /* -------------------------
+       テーブル
+    ------------------------- */
+
+    <!--.table-wrapper {-->
+    <!--    width: 100%;-->
+
+    <!--    overflow-x: auto;-->
+
+    <!--    -webkit-overflow-scrolling: touch;-->
+    <!--}-->
+
+    <!--.table-wrapper table {-->
+    <!--    min-width: 700px;-->
+    <!--}-->
+
+
+    /* -------------------------
+       登録・編集フォーム
+    ------------------------- */
+
+    .form-card {
+        width: 100%;
+        max-width: none;
+
+        padding: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+
+        width: 100%;
+
+        gap: 10px;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+
+    /* -------------------------
+       削除確認画面
+    ------------------------- */
+
+    .confirm-card {
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    .confirm-row {
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .confirm-label {
+        width: 100%;
+    }
+
+
+    /* -------------------------
+       ログイン・新規登録
+    ------------------------- */
+
+    .auth-page {
+        padding: 24px 16px;
+    }
+
+    .auth-card {
+        padding: 24px;
+    }
+}
+
+
+/* =========================
+   小さいスマートフォン
+========================= */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        padding: 14px 12px;
+    }
+
+    .sidebar-logo {
+        font-size: 19px;
+    }
+
+    .sidebar-nav a {
+        padding: 8px 11px;
+
+        font-size: 12px;
+    }
+
+
+    /* メイン領域 */
+
+    .main-area {
+        padding: 20px 12px 32px;
+    }
+
+
+    /* タイトル */
+
+    .page-title {
+        font-size: 21px;
+    }
+
+    .page-description {
+        font-size: 13px;
+    }
+
+
+    /* カード */
+
+    .card {
+        padding: 16px;
+
+        border-radius: 10px;
+    }
+
+
+    /* ダッシュボード */
+
+    .action-card {
+        gap: 12px;
+
+        padding: 15px;
+    }
+
+    .action-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
+
+
+    /* フォーム */
+
+    .form-card,
+    .confirm-card {
+        padding: 16px;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        font-size: 16px;
+    }
+
+
+    /* ログイン画面 */
+
+    .auth-page {
+        padding: 20px 12px;
+    }
+
+    .auth-card {
+        padding: 22px 18px;
+    }
+
+    .auth-logo {
+        font-size: 23px;
+    }
+
+    .auth-header h1 {
+        font-size: 21px;
+    }
+}
