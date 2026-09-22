@@ -1,4 +1,15 @@
 <?php
+// 企業マイページの秘密情報は受け付けず、管理方法だけを保存する。
+function getCredentialNoteOptions(): array
+{
+    return ["パスワードマネージャーに保存", "Googleアカウントで登録", "大学メールを使用"];
+}
+
+function isValidCredentialNote($value): bool
+{
+    return is_string($value) && ($value === "" || in_array($value, getCredentialNoteOptions(), true));
+}
+
 function h($value)
 {
     return htmlspecialchars(

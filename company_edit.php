@@ -72,7 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $login_url = trim($_POST["login_url"] ?? "");
     $login_email = trim($_POST["login_email"] ?? "");
     $login_id = trim($_POST["login_id"] ?? "");
-    $password_management = trim($_POST["password_management"] ?? "");
+    // DBの旧カラム名は互換性のため維持。保存するのは管理方法のみ。
+    $credential_note = $_POST["credential_note"] ?? "";
+    if (!isValidCredentialNote($credential_note) || isset($_POST["password_management"])) {
+        http_response_code(400);
+        exit("ログイン管理方法を選択してください。実際のパスワードは保存できません。");
+    }
 
     $interest_level = $_POST["interest_level"] ?? "";
     $status = $_POST["status"] ?? "";
@@ -92,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 login_url = :login_url,
                 login_email = :login_email,
                 login_id = :login_id,
-                password_management = :password_management,
+                password_management = :credential_note,
                 interest_level = :interest_level,
                 status = :status,
                 memo = :memo
@@ -157,8 +162,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
 
         $stmt->bindValue(
-            ":password_management",
-            $password_management,
+            ":credential_note",
+            $credential_note,
             PDO::PARAM_STR
         );
 
@@ -504,17 +509,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <div class="form-group">
 
-                        <label for="password_management">
-                            パスワード管理方法
+                        <label for="credential_note">
+                            ログイン管理方法
                         </label>
 
-                        <input
-                            type="text"
-                            id="password_management"
-                            name="password_management"
-                            value="<?= h($company["password_management"]) ?>"
-                            placeholder="例：ブラウザに保存"
-                        >
+                        <select id="credential_note" name="credential_note" aria-describedby="credential_note_help">
+                            <option value="">未設定</option>
+                            <?php foreach (getCredentialNoteOptions() as $option): ?>
+                                <option value="<?= h($option) ?>" <?= ($company["password_management"] ?? "") === $option ? "selected" : "" ?>><?= h($option) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <p id="credential_note_help" class="section-description">管理方法・登録方法のみ記録します。実際のパスワードや秘密の質問の答えは、備考欄を含め入力しないでください。</p>
+                        <?php if (!isValidCredentialNote($company["password_management"] ?? "")): ?>
+                            <p class="section-description">以前の自由入力値は表示していません。管理方法を選び直して保存すると置き換わります。未設定で保存すると削除されます。</p>
+                        <?php endif; ?>
 
                     </div>
 

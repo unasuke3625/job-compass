@@ -15,7 +15,7 @@
         login_url VARCHAR(1000),
         login_email VARCHAR(255),
         login_id VARCHAR(255),
-        password_management VARCHAR(255),
+        password_management VARCHAR(255) COMMENT '管理方法のみ。実パスワード保存禁止。アプリ側名: credential_note',
     
         interest_level INT,
         status VARCHAR(50),
