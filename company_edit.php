@@ -264,13 +264,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 選考管理
             </a>
 
-            <a
-                href="index.php#companies"
-                class="active"
-            >
-                企業管理
-            </a>
-
             <a href="#">
                 スケジュール
             </a>

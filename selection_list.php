@@ -157,10 +157,6 @@ $companies = $company_stmt->fetchAll(PDO::FETCH_ASSOC);
                 </a>
 
                 <a href="#">
-                    企業管理
-                </a>
-
-                <a href="#">
                     スケジュール
                 </a>
                 

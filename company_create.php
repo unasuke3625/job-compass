@@ -186,13 +186,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 選考管理
             </a>
 
-            <a
-                href="index.php#companies"
-                class="active"
-            >
-                企業管理
-            </a>
-
             <a href="#">
                 スケジュール
             </a>
@@ -290,7 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 type="text"
                                 id="company_name"
                                 name="company_name"
-                                placeholder="例：富士通株式会社"
+                                placeholder="例：○○株式会社"
                                 required
                             >
 
@@ -344,7 +337,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 type="text"
                                 id="application_route"
                                 name="application_route"
-                                placeholder="例：企業HP、リクナビ"
+                                placeholder="例：企業HP、就活サービス"
                             >
 
                         </div>
@@ -363,7 +356,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             type="text"
                             id="service_name"
                             name="service_name"
-                            placeholder="例：マイナビ、OfferBox"
+                            placeholder="例：○○ナビ、オファー系サービス"
                         >
 
                     </div>

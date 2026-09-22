@@ -10,7 +10,7 @@ $sql = "
     SELECT *
     FROM companies
     WHERE user_id = :user_id
-    ORDER BY id DESC
+    ORDER BY interest_level ASC, id DESC
 ";
 
 $stmt = $pdo->prepare($sql);
@@ -68,10 +68,6 @@ $companies = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             <a href="selection_list.php">
                 選考管理
-            </a>
-
-            <a href="#companies">
-                企業管理
             </a>
 
             <a href="#">
