@@ -156,7 +156,7 @@ $companies = $company_stmt->fetchAll(PDO::FETCH_ASSOC);
                     選考管理
                 </a>
 
-                <a href="#">
+                <a href="schedule.php">
                     スケジュール
                 </a>
                 
